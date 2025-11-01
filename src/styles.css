@@ -1,8 +1,117 @@
-body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f8fafc; margin:0 }
-.container{ max-width:1100px; margin:0 auto; padding:20px }
-.header{ display:flex; justify-content:space-between; align-items:center }
-.btn{ background:#111827;color:#fff;padding:8px 10px;border-radius:8px;font-weight:600; border:none; cursor:pointer }
-.table{ width:100%; border-collapse:collapse }
-.table th, .table td{ padding:8px; border-bottom:1px solid #eee; text-align:left }
-.input{ padding:8px; border:1px solid #E5E7EB; border-radius:6px; width:100% }
-.small{ font-size:0.9rem; color:#555 }
+/* src/styles.css - Estilos base para Adega Di Vinno 2 */
+
+:root{
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --accent: #111827;
+  --success-bg: #ecfdf5;
+  --success-border: #bbf7d0;
+  --gap: 8px;
+  --radius: 8px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  margin: 0;
+  color: #111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size: 15px;
+}
+
+.container{
+  max-width:1100px;
+  margin: 18px auto;
+  padding: 18px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+h1{ margin: 0; font-size: 22px }
+h2{ margin: 0 0 10px 0; font-size: 18px }
+
+.small{ font-size:0.9rem; color:var(--muted) }
+.btn{
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn:disabled{ opacity: 0.5; cursor: not-allowed }
+
+.input{
+  padding: 8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  width:100%;
+  font-size: 14px;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  background: var(--panel);
+  border-radius:8px;
+  overflow:hidden;
+}
+.table th, .table td{
+  padding:10px 12px;
+  border-bottom:1px solid #f1f5f9;
+  text-align:left;
+  font-size: 14px;
+}
+.table thead th{
+  background: #fbfdfe;
+  font-weight: 700;
+  color: #111827;
+}
+.table tbody tr:last-child td{ border-bottom: none }
+
+.card{
+  background: var(--panel);
+  padding:12px;
+  border-radius:10px;
+  box-shadow: 0 1px 3px rgba(16,24,40,0.03);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 820px){
+  .form-grid{ grid-template-columns: 1fr }
+  .header{ flex-direction:column; align-items:flex-start; gap:10px }
+  .container{ padding: 12px; margin:12px }
+}
+
+.notice-success{
+  margin-top:12px;
+  padding:10px;
+  background: var(--success-bg);
+  border:1px solid var(--success-border);
+  border-radius:8px;
+  color: #064e3b;
+}
+
+/* pequenos utilitários */
+.mb-8{ margin-bottom: 8px }
+.mt-12{ margin-top: 12px }
+.center{ display:flex; align-items:center; justify-content:center }
+
